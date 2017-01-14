@@ -1,3 +1,77 @@
-.myName {
+$arrow-size: 30vmin;
+
+.arrow {
+    box-sizing: border-box;
+    $arrow-color: #88b7d5;
+    $arrow-border-color: #c2e1f5;
+    $border-size: 2vmin;
+    $width-ratio: 1.3;
+
+    transition: opacity 500ms;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: $arrow-size;
+    left: 0;
+    width: $arrow-size / $width-ratio;
+    height: $arrow-size;
+    margin: auto;
+    display: block;
+    background: $arrow-color;
+    border: $border-size solid $arrow-border-color;
+    border-bottom-width: 0;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::after, &::before {
+        cursor: pointer;
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: "";
+        height: 0;
+        width: 0;
+        position: absolute;
+    }
+
+    &::after {
+        border-top-color: $arrow-color;
+        border-width: $arrow-size;
+        border-left-width: $arrow-size / $width-ratio;
+        border-right-width: $arrow-size / $width-ratio;
+        margin-left: -1 * $arrow-size / $width-ratio;
+    }
+    &::before {
+        margin-top: -1 * $border-size;
+        border-top-color: $arrow-border-color;
+        border-width: ($arrow-size + (2.5 * $border-size));
+        border-left-width: ($arrow-size + (2.5 * $border-size)) / $width-ratio;
+        border-right-width: ($arrow-size + (2.5 * $border-size)) / $width-ratio;
+        margin-left: -1 * ($arrow-size + (2.5 * $border-size)) / $width-ratio;
+    }
+}
+
+.rotation-container {
+    max-width: $arrow-size * 4;
+    height: 70vh;
+    margin: auto;
+    padding: $arrow-size / 2;
+}
+
+.hint-text {
+    position: relative;
+    font-size: 1.4rem;
     font-weight: bold;
+    transition: opacity 200ms;
+    text-align: center;
+    margin: auto;
+    height: 100%;
+    max-width: $arrow-size * 2;
+    display: flex;
+    flex: 0 1 auto;
+    align-items: center;
+    pointer-events: none;
 }

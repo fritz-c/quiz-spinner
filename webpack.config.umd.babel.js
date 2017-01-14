@@ -15,13 +15,13 @@ const externals = {};
 
 module.exports = {
     entry: {
-        'my-component': './src/index',
+        'quiz-spinner': './src/index',
     },
     output: {
         path: path.join(__dirname, 'dist', 'umd'),
         filename: '[name].js',
         libraryTarget: 'umd',
-        library: 'MyComponent',
+        library: 'QuizSpinner',
     },
     resolve: {
         extensions: ['', '.js']

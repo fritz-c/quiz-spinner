@@ -1,6 +1,6 @@
 # Webpack React Component Boilerplate
 
-[![Package Logo](https://cloud.githubusercontent.com/assets/4413963/18860339/51400464-84b7-11e6-9209-351d931960ac.png)](https://github.com/fritz-c/webpack-react-component-boilerplate)
+[![Package Logo](https://cloud.githubusercontent.com/assets/4413963/18860339/51400464-84b7-11e6-9209-351d931960ac.png)](https://github.com/fritz-c/quiz-spinner)
 
 Yet another opinionated React component boilerplate (but with Webkit!). Please make it your own - change the license, remove the linter, or maybe even add some functionality.
 
@@ -11,7 +11,7 @@ Yet another opinionated React component boilerplate (but with Webkit!). Please m
 - Inlined style compiled from SCSS files => no external CSS files for component users
 - Set up for Babel / ES6
 - Easy github pages deployment with gh-pages
-    - [Generated github site demo](https://fritz-c.github.io/webpack-react-component-boilerplate/)
+    - [Generated github site demo](https://fritz-c.github.io/quiz-spinner/)
 
 -------------------------------------------------------------------
 
@@ -21,12 +21,12 @@ _Sample README content follows_
 
 ```jsx
 import React from 'react';
-import MyComponent from 'my-component';
+import QuizSpinner from 'quiz-spinner';
 
 export default React.createClass({
     render() {
         return (
-            <MyComponent myName="World" />
+            <QuizSpinner myName="World" />
         );
     }
 });
@@ -61,4 +61,4 @@ Pull requests are welcome!
 
 ## License
 
-[The Unlicense](https://unlicense.org/)
+MIT

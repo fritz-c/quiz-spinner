@@ -1,7 +1,7 @@
 {
-  "name": "my-component",
+  "name": "quiz-spinner",
   "version": "1.0.0",
-  "description": "My Component built with React.js and Webpack",
+  "description": "Quiz Spinner for conversation topics",
   "scripts": {
     "build": "npm run lint && npm run test && npm run build:demo && npm run build:umd",
     "build:demo": "npm run clean:demo && cross-env NODE_ENV=production webpack --config webpack.config.demo.babel.js --bail",
@@ -16,20 +16,20 @@
     "test": "cross-env NODE_ENV=test karma start --single-run",
     "test:watch": "cross-env NODE_ENV=test karma start"
   },
-  "main": "dist/umd/my-component.js",
+  "main": "dist/umd/quiz-spinner.js",
   "files": [
     "dist"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/fritz-c/webpack-react-component-boilerplate"
+    "url": "https://github.com/fritz-c/quiz-spinner"
   },
-  "homepage": "https://your-name.github.io/my-component",
-  "bugs": "https://github.com/your-name/my-component/issues",
+  "homepage": "https://fritz-c.github.io/quiz-spinner",
+  "bugs": "https://github.com/fritz-c/quiz-spinner/issues",
   "authors": [
-    "Your Name"
+    "Chris Fritz"
   ],
-  "license": "Unlicense",
+  "license": "MIT",
   "dependencies": {},
   "peerDependencies": {
     "react": "^15.0.0",

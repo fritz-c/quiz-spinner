@@ -1,6 +1,6 @@
 import {
     hello,
-} from './my-component';
+} from './quiz-spinner';
 
 describe('getVisibleNodeCount', () => {
     it('should greet with fervor', () => {
