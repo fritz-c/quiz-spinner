@@ -11,7 +11,7 @@ import '../shared/favicon/safari-pinned-tab.svg';
 class App extends Component {
     render() {
         return (
-            <QuizSpinner spinSpeed={700} />
+            <QuizSpinner />
         );
     }
 }

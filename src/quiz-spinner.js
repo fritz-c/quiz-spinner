@@ -31,19 +31,27 @@ class QuizSpinner extends Component {
     }
 
     spin() {
-        const players = 4;
-        const storedResults = 2;
+        const {
+            players,
+            avoidLastNPlayers,
+        } = this.props;
+
         let angle;
 
         const genAngle = () => this.state.angle + (360 * 2) + (Math.random() * 360 * 3);
-        const isTooClose = oldAngle =>
-            angleDiff(oldAngle, angle) < (180 / (Math.max(storedResults + 1, players) + 1));
 
-        do {
-            angle = genAngle();
-        } while (this.pastAngles.some(isTooClose));
+        angle = genAngle();
+        // Generate angles until the last <avoidLastNPlayers> players are excluded
+        if (avoidLastNPlayers > 0) {
+            const isTooClose = oldAngle =>
+                angleDiff(oldAngle, angle) < (180 / (Math.max(avoidLastNPlayers + 1, players) + 1));
 
-        this.pastAngles = [ angle, ...this.pastAngles.slice(0, storedResults - 1) ];
+            while (this.pastAngles.some(isTooClose)) {
+                angle = genAngle();
+            }
+        }
+
+        this.pastAngles = [ angle, ...this.pastAngles.slice(0, avoidLastNPlayers - 1) ];
 
         let message = '';
         ([this.hints, message] = popRandom(this.hints));
@@ -116,11 +124,16 @@ class QuizSpinner extends Component {
 }
 
 QuizSpinner.propTypes = {
-    spinSpeed: PropTypes.number,
-    hints: PropTypes.arrayOf(PropTypes.string),
+    spinSpeed:         PropTypes.number,
+    players:           PropTypes.number,
+    avoidLastNPlayers: PropTypes.number,
+    hints:             PropTypes.arrayOf(PropTypes.string),
 };
 
 QuizSpinner.defaultProps = {
+    spinSpeed: 700,
+    players: 4,
+    avoidLastNPlayers: 2,
     hints: defaultHints,
 };
 
