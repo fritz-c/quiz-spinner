@@ -110,13 +110,8 @@ class QuizSpinner extends Component {
                     }}
                 />
 
-                <div
-                    className={styles['hint-text']}
-                    style={{
-                        opacity: spinning ? 0 : 1,
-                    }}
-                >
-                    {message}
+                <div className={styles['hint-text']}>
+                    {!spinning && message}
                 </div>
             </div>
         );
