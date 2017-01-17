@@ -81,7 +81,7 @@ class QuizSpinner extends Component {
         } = this.props;
 
         const style = {
-            transform: `rotate3d(0,0,1, ${angle}deg)`,
+            transform: `rotateZ(${angle}deg)`,
         };
 
         if (spinning) {
