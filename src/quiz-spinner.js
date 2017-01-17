@@ -33,13 +33,16 @@ class QuizSpinner extends Component {
     spin() {
         const players = 4;
         const storedResults = 2;
-        const genAngle = () => this.state.angle + 2880 + (Math.random() * 360 * 3);
-        let angle = genAngle();
+        let angle;
+
+        const genAngle = () => this.state.angle + (360 * 2) + (Math.random() * 360 * 3);
         const isTooClose = oldAngle =>
             angleDiff(oldAngle, angle) < (180 / (Math.max(storedResults + 1, players) + 1));
-        while (this.pastAngles.some(isTooClose)) {
+
+        do {
             angle = genAngle();
-        }
+        } while (this.pastAngles.some(isTooClose));
+
         this.pastAngles = [ angle, ...this.pastAngles.slice(0, storedResults - 1) ];
 
         let message = '';
